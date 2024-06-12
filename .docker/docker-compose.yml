@@ -1,0 +1,22 @@
+services:
+
+    node:
+        build:
+            args:
+                user: ${USER}
+                uid: ${UID}
+            context: ./node
+            dockerfile: Dockerfile
+        volumes:
+            - ../:/app
+        expose:
+            - 3000
+            - 3001
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "5m"
+                max-file: "1"
+

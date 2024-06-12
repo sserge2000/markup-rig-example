@@ -1,0 +1,6 @@
+services:
+  node:
+    ports:
+      - "${HOST_LOCAL_IP}:80:3000"
+      - "${HOST_LOCAL_IP}:3001:3001"
+

@@ -2,16 +2,9 @@ var gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
-var twing = require('gulp-twing');
 var browserSync = require('browser-sync').create();
-
-const through2 = require( 'through2' );
-const touch = () => through2.obj( function( file, enc, cb ) {
-    if ( file.stat ) {
-        file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
-    }
-    cb( null, file );
-});
+var twig = require('gulp-twig');
+var {touch} = require('./.utils/gulp-touch');
 
 var paths = {
     build: {
@@ -35,11 +28,6 @@ var paths = {
     }
 };
 
-var {createEnvironment, createFilesystemLoader} = require('twing');
-var fs = require('fs');
-const twingLoader = createFilesystemLoader(fs);
-twingLoader.addPath(paths.src.templates);
-
 var vendor = [
     'node_modules/jquery/dist/jquery.min.js',
 ];
@@ -58,10 +46,10 @@ function copyPublic() {
 }
 
 function templates() {
-    //create new twig environment each time to clear cached pages
-    let twingEnv = createEnvironment(twingLoader);
     return gulp.src(paths.src.pages)
-        .pipe(twing(twingEnv))
+        .pipe(twig({
+            base: paths.src.templates
+        }))
         .pipe(touch()) //update modify time of generated files
         .pipe(gulp.dest(paths.build.server))
 }

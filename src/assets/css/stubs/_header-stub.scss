@@ -1,0 +1,14 @@
+@import "../media";
+
+.header-stub {
+  background-color: #f2f5f7;
+  height: 250px;
+
+  @include tablet {
+    height: 155px;
+  }
+
+  @include phone {
+    height: 115px;
+  }
+}

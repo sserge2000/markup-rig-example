@@ -1,0 +1,23 @@
+@mixin hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome Safari */
+  }
+}
+
+@mixin rating-blue {
+  filter: invert(38%) sepia(30%) saturate(2793%) hue-rotate(187deg) brightness(95%) contrast(87%); /*#2479D3*/
+}
+
+@mixin orange-filter {
+  filter: invert(61%) sepia(87%) saturate(457%) hue-rotate(349deg) brightness(102%) contrast(101%); /*#ffaa1c*/
+}
+
+@mixin gray-filter {
+  filter: invert(73%) sepia(0%) saturate(1368%) hue-rotate(152deg) brightness(85%) contrast(80%); /*#999;*/
+}
+
+@mixin light-grey-filter {
+  filter: invert(84%) sepia(0%) saturate(1%) hue-rotate(156deg) brightness(102%) contrast(83%); /*#ccc*/
+}

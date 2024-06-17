@@ -1,0 +1,14 @@
+<div class="expert-reviews-summary {{ addClass|default('') }}">
+    <div class="expert-reviews-summary__reviews-rating-number">
+        {{ ratingData.rating|number_format(1, '.') }}
+    </div>
+    {% include 'front2/expert/helpers/_expert-rating.html.twig' with {
+        addClass: 'expert-rating_large expert-reviews-summary__rating-stars',
+        rating: ratingData.ratingRounded,
+    } %}
+    <div class="expert-reviews-summary__reviews-rating-text">
+        на основе {{ ratingData.reviewsCount }} оценок
+    </div>
+
+    {% include 'front2/expert/viewExpert/_expert-button-leave-review.html.twig' %}
+</div>

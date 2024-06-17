@@ -1,10 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block title %}markup rig{% endblock %}
-{% block body %}
-    <div class="content-width">
-        <h1>
-            Index page test
-        </h1>
+{% block page_common %}
+    <div class="pages-index">
+        <h1 class="pages-index__header">Страницы</h1>
+        <ul class="pages-index__items">
+            <li>
+                <a href="/expert/allExperts.html" class="pages-index__item">Страница списка экспертов</a>
+            </li>
+            <li>
+                <a href="/expert/viewExpert.html" class="pages-index__item">Страница эксперта</a>
+            </li>
+            <li>
+                <a href="/expert/viewExpertNoReviews.html" class="pages-index__item">Страница эксперта (без отзывов)</a>
+            </li>
+        </ul>
     </div>
 {% endblock %}
 

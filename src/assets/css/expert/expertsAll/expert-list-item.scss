@@ -1,0 +1,138 @@
+@import "../../utils/lineClamp";
+
+.expert-list-item {
+  $self: &;
+
+  box-sizing: border-box;
+  padding: 30px;
+  padding-right: 270px;
+  padding-bottom: 35px;
+
+
+  max-width: 700px;
+  height: 378px;
+
+  @include tablet {
+    padding: 20px;
+    padding-right: 180px;
+    padding-bottom: 25px;
+    height: 272px;
+  }
+
+  @include phone {
+    padding-right: 120px;
+  }
+
+  border: 1px solid #E3E8EC;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  overflow: hidden;
+  position: relative;
+
+  &__name {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+
+    margin-bottom: 8px;
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 24px;
+
+      margin-bottom: 2px;
+    }
+  }
+
+  &__specialization {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+
+    margin-bottom: 12px;
+    @include tablet {
+      font-size: 12px;
+      line-height: 17px;
+
+      color: #888888;
+
+      margin-bottom: 12px;
+    }
+  }
+
+  &__description {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+
+    color: #888888;
+
+    @include lineClamp(8);
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__rating {
+    @include desktop-only {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      text-align: right;
+    }
+  }
+
+  &__rating-stars {
+    margin-bottom: 4px;
+  }
+
+  &__spacer {
+    flex-basis: 1px;
+    flex-grow: 1;
+  }
+
+  &__ask-question {
+    z-index: 1;
+  }
+
+  &__expert-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 261px !important;
+    @include tablet {
+      width: 194px !important;
+    }
+    @include phone {
+      right: -30px;
+    }
+  }
+
+  &__back-image {
+    position: absolute;
+    right: -19px;
+    bottom: -84px;
+
+    width: 288px;
+    height: 288px;
+    border-radius: 200px;
+    background-color: $orangeColor;
+
+    @include tablet {
+      width: 220px;
+      height: 220px;
+      right: -16px;
+      bottom: -67px;
+    }
+
+    @include phone {
+      right: -46px;
+    }
+  }
+
+}

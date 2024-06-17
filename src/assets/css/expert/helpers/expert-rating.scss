@@ -1,0 +1,47 @@
+@import "../../mixins";
+
+.expert-rating {
+  $self: &;
+  display: flex;
+
+  cursor: pointer;
+  user-select: none;
+  caret-color: transparent;
+
+  &__star {
+    width: 18px;
+    height: 18px;
+
+    #{$self}_large & {
+      width: 24px;
+      height: 24px;
+    }
+
+    @include tablet {
+      width: 15px;
+      height: 15px;
+    }
+
+    background: url("/img/icon/rating-star2.svg") no-repeat center;
+    background-size: cover;
+
+    &_filled {
+      background-image: url("/img/icon/rating-star-filled2.svg");
+    }
+
+    @include rating-blue;
+
+    #{$self}_theme_review & {
+      @include orange-filter;
+    }
+
+    #{$self}_theme_no-reviews & {
+      @include light-grey-filter;
+    }
+
+    &:nth-last-child(n+2) {
+      margin-right: 2px;
+    }
+  }
+
+}

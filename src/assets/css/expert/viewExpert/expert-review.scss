@@ -1,0 +1,50 @@
+.expert-review {
+
+
+  @include desktop-only {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: #000000;
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+
+    max-width: 700px;
+
+    @include tablet {
+      line-height: 20px;
+
+      margin-bottom: 15px;
+    }
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+
+    color: #888888;
+
+    margin-bottom: 4px;
+
+    @include desktop-only {
+      text-align: right;
+    }
+  }
+
+
+
+
+}

@@ -1,0 +1,33 @@
+@import "../mixins";
+@import "../vars";
+
+.breadcrumb-item {
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  position: relative;
+  margin-right: 15px;
+  text-decoration: none;
+
+  &::after {
+    content: url("/img/icon/arrow_mini.svg");
+    @include gray-filter;
+    margin-left: 8px;
+  }
+
+  &__active {
+    color: $lightGrayColor;
+    margin-right: 0;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  &__last {
+    &::after {
+      content: none;
+    }
+  }
+
+}

@@ -1,0 +1,7 @@
+<div class="expert-rating {{ addClass|default('') }}">
+    {%- for n in range(1,5) -%}
+        <div
+            class="expert-rating__star {{ (loop.index <= rating|default(0)) ? 'expert-rating__star_filled' : '' }}"
+        ></div>
+    {%- endfor -%}
+</div>

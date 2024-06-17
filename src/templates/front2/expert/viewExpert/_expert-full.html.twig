@@ -1,0 +1,55 @@
+<div class="expert-full">
+    <div class="expert-full__expert-image-wrapper">
+        <div class="expert-full__expert-back-image"></div>
+
+        {% include 'front2/expert/helpers/_expertMainImage.html.twig' with {
+            addClass: 'expert-full__expert-image'
+        } %}
+    </div>
+
+    <div class="expert-full__expert-info">
+        <h1 class="expert-full__name">
+            {{ expert.fullName }}
+        </h1>
+        <div class="expert-full__specialization">
+            {{ expert.specializationText }}
+        </div>
+        <div class="expert-full__description">
+            {{ expert.description }}
+        </div>
+
+        {% if ratingData.reviewsCount > 0 %}
+            <div class="expert-full__rating">
+                {% include 'front2/expert/helpers/_expert-rating.html.twig' with {
+                    addClass: 'expert-full__rating-stars',
+                    rating: ratingData.ratingRounded,
+                } %}
+                {% include 'front2/expert/helpers/_expert-reviews-count.html.twig' with {n: ratingData.reviewsCount} only %}
+            </div>
+        {% endif %}
+
+
+        <div class="expert-full__additional-images">
+            {% for image in expert.imagesByType('additional') %}
+                {% set originalImagePath = originalImageWebPathPrefix ~ image.path %}
+                <a
+                    target="_blank"
+                    href="{{ originalImagePath }}"
+                    class="expert-full__additional-image"
+                >
+                    <img
+                        src="{{ image.path|imagine_filter('expert_additional_image') }}"
+                        alt=""
+                        loading="lazy"
+                    >
+                </a>
+            {% endfor %}
+        </div>
+
+        {% include 'front2/expert/helpers/_expert-button-ask-question.html.twig' with {
+            addClass: 'expert-full__ask-question'
+        } %}
+
+    </div>
+
+</div>

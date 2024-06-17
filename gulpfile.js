@@ -14,8 +14,8 @@ var paths = {
         vendor: 'dist-server/assets/vendor',
     },
     src: {
-        public: ['src/public/**/*', '!src/public/**/*.html'],
-        pages: 'src/public/**/*.html',
+        public: ['src/public/**/*', '!src/public/**/*.html.twig'],
+        pages: 'src/public/**/*.html.twig',
         templates: 'src/templates',
         sass: 'src/assets/css/app.scss',
         js: 'src/assets/js/*.js'
@@ -48,7 +48,8 @@ function copyPublic() {
 function templates() {
     return gulp.src(paths.src.pages)
         .pipe(twig({
-            base: paths.src.templates
+            base: paths.src.templates,
+            extname: '',
         }))
         .pipe(touch()) //update modify time of generated files
         .pipe(gulp.dest(paths.build.server))

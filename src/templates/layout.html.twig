@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}markup rig{% endblock %}
+{% block body %}
+    <div class="layout common-font">
+        <header class="header-stub">
+
+        </header>
+
+        <div class="layout__page-content">
+            {% block page %}
+                <div class="layout__content-width layout__page-padding">
+                    {% block page_common %}{% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+
+        <footer class="footer-stub">
+
+        </footer>
+
+    </div>
+{% endblock %}
+

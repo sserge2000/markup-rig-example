@@ -1,0 +1,11 @@
+@import "../media";
+
+.footer-stub {
+  background-color: #f2f5f7;
+  height: 400px;
+
+
+  @include phone {
+    height: 150px;
+  }
+}

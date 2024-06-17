@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+
+{% set title = 'Эксперты компании' %}
+
+{% block page_common %}
+
+<div class="experts-page content-width">
+
+
+    {% block breadcrumbs %}
+        <div class="experts-page__breadcrumbs">
+            <a class="breadcrumb-item" href="#">Главная</a>
+            <a class="breadcrumb-item breadcrumb-item__active" href="#">Эксперты компании</a>
+        </div>
+    {% endblock %}
+
+    <h1 class="experts-page__header">
+        Эксперты компании
+    </h1>
+
+    <div class="js-experts-all experts-all">
+        <div class="experts-all__taxons">
+
+            <div class="experts-all__taxon js-experts-all__tab active">
+                Все
+            </div>
+            {% for taxon in taxons %}
+                <div
+                    class="experts-all__taxon js-experts-all__tab"
+                    data-topic="{{ taxon.id }}"
+                >
+                    {{ taxon.name }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="experts-all__experts">
+            {% for expert in experts %}
+                {% include 'front2/expert/allExperts/_expert-list-item.html.twig' with {
+                    addClass: ' js-experts-all__expert experts-all__expert',
+                    addAttribute: 'data-topics='
+                }%}
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

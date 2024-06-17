@@ -1,0 +1,122 @@
+.experts-all {
+  $expertTaxonMargin: 12px;
+  $expertTaxonMarginTablet: 8px;
+
+  &__taxons {
+    display: flex;
+
+    margin-bottom: 24px;
+
+    @include tablet-and-wider {
+      flex-wrap: wrap;
+    }
+    @include desktop-only {
+      margin-left: -$expertTaxonMargin;
+      margin-top: -$expertTaxonMargin;
+    }
+
+    @include tablet-only {
+      margin-left: -$expertTaxonMarginTablet;
+      margin-top: -$expertTaxonMarginTablet;
+    }
+
+    @include phone {
+      overflow-x: auto;
+      @include hide-scrollbar;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 $phoneSideMargin;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  &__taxon {
+    border-radius: 5px;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+    user-select: none;
+    caret-color: transparent;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include tablet {
+      font-size: 12px;
+      padding: 5px 8px;
+    }
+
+    background: #F2F5F7;
+    color: #4B5F6F;
+    &.active {
+      background: #4B5F6F;
+      color: #FFFFFF;
+    }
+
+    @include desktop-only {
+      margin-left: $expertTaxonMargin;
+      margin-top: $expertTaxonMargin;
+    }
+
+    @include tablet-only {
+      margin-left: $expertTaxonMarginTablet;
+      margin-top: $expertTaxonMarginTablet;
+    }
+
+    @include phone {
+      flex-shrink: 0;
+      &:nth-last-child(n+2) {
+        margin-right: 8px;
+      }
+    }
+
+  }
+
+
+  $expertItemMargin: 30px;
+  $expertItemMarginTablet: 20px;
+
+  &__experts {
+    @include tablet-and-wider {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    @include desktop-only {
+      margin-top: -$expertItemMargin;
+      margin-left: -$expertItemMargin;
+    }
+
+    @include tablet-only {
+      margin-top: -$expertItemMarginTablet;
+      margin-left: -$expertItemMarginTablet;
+    }
+
+    @include phone {
+      padding: 0 $phoneSideMargin;
+    }
+  }
+
+  &__expert {
+
+    @include desktop-only {
+      margin-left: $expertItemMargin;
+      margin-top: $expertItemMargin;
+      width: calc(50% - #{$expertItemMargin});
+    }
+
+    @include tablet-only {
+      margin-top: $expertItemMarginTablet;
+      margin-left: $expertItemMarginTablet;
+      width: calc(50% - #{$expertItemMarginTablet});
+    }
+
+    @include phone {
+      &:nth-last-child(n+2) {
+        margin-bottom: 21px;
+      }
+    }
+  }
+}

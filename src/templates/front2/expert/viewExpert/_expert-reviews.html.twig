@@ -1,0 +1,29 @@
+<div class="expert-reviews">
+    {% if ratingData.reviewsCount == 0 %}
+        <div class="expert-reviews__reviews-count">
+            Нет отзывов
+        </div>
+        <div class="expert-reviews__no-reviews-message">
+            Отзывов нет. Станьте первым, кто оставит отзыв!
+        </div>
+        <div class="expert-reviews__no-reviews-button">
+            {% include 'front2/expert/viewExpert/_expert-button-leave-review.html.twig' %}
+        </div>
+
+    {% else %}
+        <div class="expert-reviews__reviews-count">
+            {{ ratingData.reviewsCount }} отзывов
+        </div>
+
+        <div class="expert-reviews__reviews">
+            {% include "front2/expert/viewExpert/_expert-reviews-summary.html.twig" with {
+                addClass: 'expert-reviews__reviews-summary'
+            }%}
+
+            <div class="expert-reviews__reviews-list">
+                {% include 'front2/expert/viewExpert/_expert-reviews-chunk.html.twig' %}
+            </div>
+        </div>
+    {% endif %}
+
+</div>

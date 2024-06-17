@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% set title = 'Эксперт ' ~ expert.fullName %}
+
+{% block page_common %}
+
+<div class="view-expert-page content-width">
+
+
+    {% block breadcrumbs %}
+        <div class="view-expert-page__breadcrumbs">
+            <a class="breadcrumb-item" href="#">Главная</a>
+            <a class="breadcrumb-item" href="#">Эксперты компании</a>
+            <span class="breadcrumb-item breadcrumb-item__active">{{ expert.fullName }}</span>
+        </div>
+    {% endblock %}
+
+    <div class="view-expert-page__expert-full">
+        {% include 'front2/expert/viewExpert/_expert-full.html.twig' %}
+    </div>
+
+    <div class="view-expert-page__reviews js-expert-reviews">
+        {% include 'front2/expert/viewExpert/_expert-reviews.html.twig' %}
+    </div>
+
+
+</div>
+
+{% endblock %}

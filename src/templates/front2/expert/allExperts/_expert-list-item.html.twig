@@ -1,0 +1,39 @@
+<div class="expert-list-item {{ addClass|default('') }}" {{ addAttribute|default('') }}>
+    <a href="#">
+
+        <div class="expert-list-item__back-image"></div>
+
+        {% include 'front2/expert/helpers/_expertMainImage.html.twig' with {
+            addClass: 'expert-list-item__expert-image'
+        } %}
+
+        <div class="expert-list-item__name">
+            {{ expert.fullName }}
+        </div>
+        <div class="expert-list-item__specialization">
+            {{ expert.specializationText }}
+        </div>
+        <div class="expert-list-item__description">
+            {{ expert.description }}
+        </div>
+
+        {% set ratingData = expert.ratingData %}
+        {% if ratingData.reviewsCount > 0 %}
+            <div class="expert-list-item__rating">
+                {% include 'front2/expert/helpers/_expert-rating.html.twig' with {
+                    addClass: 'expert-list-item__rating-stars',
+                    rating: ratingData.ratingRounded,
+                } %}
+                {% include 'front2/expert/helpers/_expert-reviews-count.html.twig' with {n: ratingData.reviewsCount} only %}
+            </div>
+        {% endif %}
+
+    </a>
+
+    <div class="expert-list-item__spacer"></div>
+
+    {% include 'front2/expert/helpers/_expert-button-ask-question.html.twig' with {
+        addClass: 'expert-list-item__ask-question'
+    } %}
+
+</div>

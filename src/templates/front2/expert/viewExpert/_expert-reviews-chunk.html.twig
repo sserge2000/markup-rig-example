@@ -1,0 +1,54 @@
+{% for review in reviews.currentPageResults %}
+    <div
+        class="expert-review expert-reviews__review"
+    >
+        <meta itemprop="datePublished" content="{{ review.publishedAt|date('Y-m-d') }}"/>
+        <div itemprop="itemReviewed"
+             itemscope itemtype="https://schema.org/Person"
+        >
+        </div>
+        <div class="expert-review__group1">
+            <div
+                class="expert-review__name"
+                itemprop="author" itemscope itemtype="https://schema.org/Person"
+            >
+                <span itemprop="name">{{ review.authorName }}</span>
+            </div>
+            <div
+                class="expert-review__text"
+                itemprop="reviewBody"
+            >
+                {{ review.content }}
+            </div>
+        </div>
+        <div class="expert-review__group2">
+            <div class="expert-review__date">
+                {{ review.publishedAt|date('d.m.Y') }}
+            </div>
+            <div
+                class="expert-review__rating-stars"
+                itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"
+            >
+                <meta itemprop="worstRating" content="1">
+                <meta itemprop="ratingValue" content="{{ review.rating }}">
+                <meta itemprop="bestRating" content="5"/>
+                {% include 'front2/expert/helpers/_expert-rating.html.twig' with {
+                    addClass: 'expert-rating_theme_review',
+                    rating: review.rating,
+                } %}
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+{% if reviews.hasNextPage %}
+    <span
+        class="expert-reviews__show-more js-show-more-loader"
+        data-url="#"
+    >
+        <div class="expert-reviews__show-more-button show-more-button js-show-more-loader__button">
+            Показать еще
+        </div>
+    </span>
+{% endif %}

@@ -1,0 +1,88 @@
+.expert-reviews {
+  &__reviews-count {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+
+    padding-bottom: 12px;
+    border-bottom: 2px solid #EBEBEB;
+
+    margin-bottom: 30px;
+
+    @include tablet {
+      font-size: 16px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__no-reviews-message {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__no-reviews-button {
+    text-align: center;
+  }
+
+  &__reviews {
+    display: flex;
+    @include phone {
+      display: block;
+    }
+  }
+
+  &__reviews-summary {
+    flex-shrink: 0;
+    @include tablet-and-wider {
+      margin-right: 70px;
+    }
+    @include phone {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__reviews-list {
+    flex-grow: 1;
+  }
+
+  &__review {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 30px;
+
+    @include tablet {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+      @include tablet {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+
+  }
+
+
+  &__show-more {
+    display: block;
+    text-align: center;
+    margin-top: 42px;
+
+    @include tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__show-more-button {
+    @include phone {
+      width: 100%;
+    }
+  }
+}

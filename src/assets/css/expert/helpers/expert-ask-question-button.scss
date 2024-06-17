@@ -1,0 +1,50 @@
+.expert-ask-question-button {
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  background: #222222;
+  border-radius: 5px;
+
+  @include desktop-only {
+    &:hover {
+      background-color: #000000;
+    }
+  }
+
+  cursor: pointer;
+  user-select: none;
+  caret-color: transparent;
+
+  &__text {
+    position: relative;
+
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 15px 24px 15px 55px;
+
+    white-space: nowrap;
+    color: #FFFFFF;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+
+    @include tablet {
+      font-size: 13px;
+      padding: 12px 20px 12px 51px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 21px;
+      height: 21px;
+      background: url('/img/icon/expert-ask-question.svg') no-repeat;
+    }
+
+  }
+
+}

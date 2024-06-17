@@ -1,0 +1,6 @@
+@mixin lineClamp($numberOfLines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $numberOfLines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
